@@ -30,7 +30,7 @@ dl{margin:24px 0 0}dt{font-size:.88rem;color:#657469;margin-top:17px}dd{margin:4
  if(!token||!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(token)){
  target.innerHTML='<p class="status invalid">Lien invalide</p><p class="message">Le lien de vérification est incomplet ou incorrect.</p>';return;}
  try{
- const response=await fetch('https://npwkpohhqrrzziycgoak.supabase.co/functions/v1/gfp-verify-attestation?token='+encodeURIComponent(token),{headers:{'Accept':'application/json'},cache:'no-store'});
+ const response=await fetch('https://npwkpohhqrrzziycgoak.supabase.co/functions/v1/gfp-verify-attestation-json?token='+encodeURIComponent(token),{headers:{'Accept':'application/json'},cache:'no-store'});
  if(!response.ok)throw new Error('HTTP '+response.status);
  const data=await response.json();
  if(!data||!data.document_number||!data.status)throw new Error('Réponse du registre non reconnue');
