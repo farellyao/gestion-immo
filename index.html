@@ -12,10 +12,16 @@ main{width:min(100%,620px);background:#fff;border:1px solid #dce6dc;border-radiu
 h1{font-size:clamp(1.45rem,4vw,1.9rem);line-height:1.2;margin:0 0 10px}.intro{color:#5b6b60;margin:0 0 24px}
 .status{display:inline-block;padding:8px 13px;border-radius:999px;background:#eef2ee;font-weight:800;font-size:.88rem}
 .status.valid{color:#14532d;background:#dcfce7}.status.invalid{color:#991b1b;background:#fee2e2}
-dl{margin:24px 0 0}dt{font-size:.88rem;color:#657469;margin-top:17px}dd{margin:4px 0 0;font-weight:650;overflow-wrap:anywhere}
+.owner{margin:18px 0 20px;padding:20px;border:2px solid #b8d8c0;border-radius:16px;background:linear-gradient(135deg,#edf8ef,#f8fcf8)}
+.owner-label{font-size:.78rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#3f6d4c;margin-bottom:8px}
+.owner-name{font-size:clamp(1.35rem,5vw,1.9rem);line-height:1.2;font-weight:850;color:#174a32;overflow-wrap:anywhere}
+.owner-note{font-size:.82rem;color:#617468;margin-top:9px}
+.details{margin:20px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{padding:13px;background:#f7faf7;border:1px solid #e3ebe2;border-radius:11px;min-width:0}
+dt{font-size:.84rem;color:#657469;margin:0 0 5px}dd{margin:0;font-weight:700;overflow-wrap:anywhere}
 .message{margin-top:22px;line-height:1.55}.muted{color:#657469;font-size:.9rem;border-top:1px solid #e4eae3;margin-top:24px;padding-top:16px}
 .error{color:#8b1e1e}.loading{color:#526458}
-@media(max-width:480px){body{padding:12px}main{border-radius:15px}}
+@media(max-width:480px){body{padding:12px}main{border-radius:15px;padding:20px}.details{grid-template-columns:1fr}.owner{padding:17px}}
 </style></head>
 <body><main>
 <div class="brand">Gestion Foncière Pro</div><h1>Vérification d’attestation foncière</h1>
@@ -35,13 +41,16 @@ dl{margin:24px 0 0}dt{font-size:.88rem;color:#657469;margin-top:17px}dd{margin:4
  const data=await response.json();
  if(!data||!data.document_number||!data.status)throw new Error('Réponse du registre non reconnue');
  const valid=data.valid===true,cancelled=data.cancelled===true;
- target.innerHTML='<p class="status '+(valid?'valid':'invalid')+'">'+(valid?'VALIDITÉ CONFIRMÉE':cancelled?'ATTESTATION ANNULÉE':'ATTESTATION NON VALIDÉE')+'</p><dl>'+
- '<dt>Numéro d’attestation</dt><dd>'+esc(data.document_number)+'</dd>'+
- '<dt>Statut enregistré</dt><dd>'+esc(data.status)+'</dd>'+
- '<dt>Date de cession</dt><dd>'+esc(data.cession_date||'Non renseignée')+'</dd>'+
- '<dt>Lieu d’établissement</dt><dd>'+esc(data.issue_place||'Non renseigné')+'</dd>'+
- (data.lot?'<dt>Lot</dt><dd>'+esc(data.lot)+'</dd>':'')+'</dl>'+
+ target.innerHTML=
+ (data.owner_name?'<section class="owner"><div class="owner-label">Propriétaire de l’attestation</div><div class="owner-name">'+esc(data.owner_name)+'</div><div class="owner-note">Nom enregistré dans le registre</div></section>':'<section class="owner"><div class="owner-label">Propriétaire de l’attestation</div><div class="owner-name">Information non renseignée</div></section>')+
+ '<p class="status '+(valid?'valid':'invalid')+'">'+(valid?'VALIDITÉ CONFIRMÉE':cancelled?'ATTESTATION ANNULÉE':'ATTESTATION NON VALIDÉE')+'</p>'+
+ '<dl class="details">'+
+ '<div class="field"><dt>Numéro d’attestation</dt><dd>'+esc(data.document_number)+'</dd></div>'+
+ '<div class="field"><dt>Statut enregistré</dt><dd>'+esc(data.status)+'</dd></div>'+
+ '<div class="field"><dt>Date de cession</dt><dd>'+esc(data.cession_date||'Non renseignée')+'</dd></div>'+
+ '<div class="field"><dt>Lieu d’établissement</dt><dd>'+esc(data.issue_place||'Non renseigné')+'</dd></div>'+
+ (data.lot?'<div class="field"><dt>Lot</dt><dd>'+esc(data.lot)+'</dd></div>':'')+'</dl>'+
  '<p class="message">'+esc(data.message||'Le statut affiché correspond aux informations du registre consulté.')+'</p>';
- }catch(e){target.innerHTML='<p class="status invalid">Vérification indisponible</p><p class="message error">La page est accessible, mais elle n’a pas pu lire le registre. Le service de vérification doit être configuré pour répondre à cette page.</p>';}
+ }catch(e){target.innerHTML='<p class="status invalid">Vérification indisponible</p><p class="message error">La page est accessible, mais elle n’a pas pu lire le registre. Réessayez plus tard ou contactez le service émetteur.</p>';}
 })();
 </script></body></html>
