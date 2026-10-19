@@ -90,6 +90,66 @@ body :focus-visible{outline:3px solid #b7d5a0;outline-offset:2px}
 @media(max-width:900px){body .shell{grid-template-columns:1fr}body .side{padding:22px 16px}body .content{padding:22px 16px 34px}body .top{padding-left:17px;padding-right:17px}}
 @media(max-width:520px){body .content{padding:18px 12px 28px}body .head h1{font-size:25px}body .stat,body .report-card{border-radius:13px}body .panelhead{padding:15px}body .stat{padding:13px}body .stat .label{font-size:10px}}
 @media(prefers-reduced-motion:reduce){body *,body *:before,body *:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* GFP — passe visuelle B : hiérarchie renforcée et responsive contrôlé */
+body .content{width:100%;max-width:1720px;margin-inline:auto;padding-left:clamp(16px,2.4vw,38px);padding-right:clamp(16px,2.4vw,38px)}
+body .welcome-hero{border:1px solid #ffffff1a;box-shadow:0 18px 42px #143e2b20, inset 0 1px #ffffff12}
+body .welcome-kicker{letter-spacing:.14em}
+body .welcome-chip{backdrop-filter:blur(8px)}
+body .stats{gap:14px}
+body .stat{position:relative;isolation:isolate;overflow:hidden}
+body .stat:before{content:"";position:absolute;z-index:-1;right:-22px;top:-28px;width:88px;height:88px;border-radius:50%;background:radial-gradient(circle,#dcebd64d,transparent 70%);pointer-events:none}
+body .dashboard-grid{align-items:stretch;gap:20px}
+body .dashboard-grid>.panel,body .dashboard-grid>div>.panel{height:100%;min-width:0}
+body .chart-bars{min-height:180px}
+body .queue-item{gap:13px;transition:background .16s}
+body .queue-item:hover{background:#f8fbf6}
+body .queue-item>div:last-child{min-width:0}
+body .queue-item b{display:block;line-height:1.45}
+body .queue-item .link{margin-top:7px;text-align:left}
+body .tablewrap{max-width:100%;overscroll-behavior-x:contain}
+body table{border-collapse:separate;border-spacing:0}
+body tbody tr:last-child td{border-bottom:0}
+body .panelhead{gap:12px}
+body .panelhead h2{line-height:1.4}
+body .btn:focus-visible,body .nav button:focus-visible,body .link:focus-visible{outline:3px solid #9dbf83;outline-offset:3px}
+body .search::placeholder,body input::placeholder,body textarea::placeholder{color:#929e93;opacity:1}
+body input:disabled,body select:disabled,body textarea:disabled{background:#f3f5f1;color:#7d897f;cursor:not-allowed}
+@media(max-width:1180px){
+  body .dashboard-grid{grid-template-columns:minmax(0,1fr) minmax(260px,.9fr);gap:14px}
+  body .content>.grid2{gap:14px}
+  body .welcome-hero{padding:27px}
+}
+@media(max-width:980px){
+  body .dashboard-grid{grid-template-columns:minmax(0,1fr)}
+  body .dashboard-grid>.panel,body .dashboard-grid>div>.panel{height:auto}
+  body .welcome-clock{min-width:165px}
+  body .content{padding-top:24px}
+}
+@media(max-width:620px){
+  body .content{padding:17px 12px 28px}
+  body .welcome-hero{padding:21px 18px;border-radius:16px;margin-bottom:16px}
+  body .welcome-title{font-size:clamp(25px,7vw,30px);letter-spacing:-.04em}
+  body .welcome-subtitle{font-size:13px}
+  body .welcome-meta{gap:7px}
+  body .welcome-chip{font-size:11px;padding:7px 9px}
+  body .stats{gap:9px}
+  body .stat{min-width:0;padding:13px;border-radius:13px}
+  body .stat .num{font-size:clamp(23px,6vw,29px);overflow-wrap:anywhere}
+  body .stat .label{line-height:1.45}
+  body .dashboard-grid{gap:13px}
+  body .chart-bars{height:158px;min-height:158px;padding:18px 12px 12px;gap:8px}
+  body .chart-col{gap:6px}
+  body .chart-col small{font-size:9px}
+  body .chart-legend{padding:11px 14px;flex-wrap:wrap}
+  body .queue-item{padding:13px 14px;gap:10px}
+  body .queue-icon{width:31px;height:31px;border-radius:9px}
+  body .panelhead{padding:15px 16px}
+  body .content>.grid2{margin-top:13px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  body .welcome-hero,body .stats .stat,body .dashboard-grid>.panel,body .dashboard-grid>div,body .content>.grid2,body .chart-bar{animation:none!important}
+}
 </style>
 </head><body><div id="root"><div class="loginwrap"><div class="login"><div class="brand"><div class="mark">G</div><div><b>Gestion Foncière Pro</b><small>ESPACE DE GESTION</small></div></div><h1>Chargement sécurisé…</h1><p>Connexion au registre d’attestations.</p></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
