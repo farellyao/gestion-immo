@@ -47,9 +47,16 @@ jobs:
                       self.inside=False; self.external=False
           for filename in ('app.html', 'index.html'):
               source = Path(filename).read_text(encoding='utf-8')
+              import re
               lower = source.lower().rstrip()
               if not lower.endswith('</html>') or '</body>' not in lower or '</head>' not in lower:
                   raise SystemExit(f'{filename}: document HTML incomplet (balises de fermeture manquantes)')
+              script_open = len(re.findall(r'<script\\b', source, flags=re.I))
+              script_close = len(re.findall(r'</script\\s*>', source, flags=re.I))
+              if script_open != script_close:
+                  raise SystemExit(f'{filename}: nombre de balises script incohérent ({script_open} ouvrantes, {script_close} fermantes)')
+              if len(re.findall(r'<html\\b', source, flags=re.I)) != 1 or len(re.findall(r'</html\\s*>', source, flags=re.I)) != 1:
+                  raise SystemExit(f'{filename}: balises html absentes ou dupliquées')
               p=Scripts(); p.feed(source); p.close()
               if p.inside:
                   raise SystemExit(f'{filename}: balise <script> non fermée')
