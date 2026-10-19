@@ -376,6 +376,38 @@ body .login .btn{min-height:45px}
 }
 @media(prefers-reduced-motion:reduce){.btn,.field input,.field select,.field textarea{transition:none}}
 
+
+/* GFP — couche visuelle G : listes denses, navigation au clavier et états de chargement */
+body .tablewrap{border:1px solid #e0e8e1;border-radius:13px;background:#fff;scrollbar-width:thin;scrollbar-color:#bdcfc1 #f4f7f4}
+body .tablewrap table{border-collapse:separate;border-spacing:0}
+body .tablewrap thead th{position:sticky;top:0;z-index:1;background:#f3f7f3;color:#43594a;font-size:.76rem;font-weight:750;letter-spacing:.035em;text-transform:uppercase;border-bottom:1px solid #dce6dd}
+body .tablewrap tbody tr{transition:background .12s ease}
+body .tablewrap tbody tr:hover{background:#f6faf6}
+body .tablewrap tbody tr:last-child td{border-bottom:0}
+body .tablewrap td,body .tablewrap th{vertical-align:middle}
+body .rowactions{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+body .rowactions .btn{min-height:34px}
+body .toolbar{align-items:center;gap:10px}
+body .toolbar>*{min-width:0}
+body .toolbar .search{flex:1 1 220px}
+body .toolbar .btn{min-height:40px}
+body .toast{max-width:min(440px,calc(100vw - 28px));border:1px solid #dce5dd;border-radius:13px;box-shadow:0 12px 35px rgba(22,48,30,.16);line-height:1.45}
+body .modal{box-shadow:0 24px 80px rgba(12,35,20,.24);border:1px solid rgba(219,230,221,.95)}
+body .modal h2,body .modal h3{letter-spacing:-.025em;line-height:1.25}
+body .modal .field+.field{margin-top:2px}
+body .panelhead{gap:12px}
+body .panelhead>*{min-width:0}
+body .panelhead p,body .panelhead small{line-height:1.45}
+body .btn:focus-visible,body .mobilemenu a:focus-visible,body .side a:focus-visible{position:relative;z-index:3}
+@media(max-width:700px){
+ body .tablewrap{max-width:100%;overscroll-behavior-x:contain}
+ body .toolbar{align-items:stretch}
+ body .toolbar .search{flex-basis:100%}
+ body .rowactions .btn{flex:0 1 auto}
+ body .panelhead{align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){body .tablewrap tbody tr,body .btn{transition:none}}
+
 </style>
 </head><body><div id="root"><div class="loginwrap"><div class="login"><div class="brand"><div class="mark">G</div><div><b>Gestion Foncière Pro</b><small>ESPACE DE GESTION</small></div></div><h1>Chargement sécurisé…</h1><p>Connexion au registre d’attestations.</p></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
