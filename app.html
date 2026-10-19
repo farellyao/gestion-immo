@@ -463,6 +463,31 @@ body .skip-link:focus{z-index:10000;left:12px;top:12px;padding:12px 16px;border-
 @media(prefers-reduced-motion:reduce){body .side a,body .mobilemenu a{transition:none}}
 
 </style>
+<style id="gfp-refinement">
+
+/* GFP refinements: accessibility, coherence, responsive touch and data readability */
+:root{--gfp-ink:#172d23;--gfp-green:#174a37;--gfp-green-deep:#123d2b;--gfp-paper:#f6f8f4;--gfp-border:#dfe7dd;--gfp-radius:14px;--gfp-shadow:0 4px 18px rgba(18,61,43,.055)}
+html{scroll-behavior:smooth}
+body{color:var(--gfp-ink)}
+button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #6b9c64!important;outline-offset:2px}
+button,.btn,.iconbtn,.nav button,.link{transition:background-color .16s ease,border-color .16s ease,color .16s ease,box-shadow .16s ease,transform .16s ease}
+.panel,.stat,.workflow-stat,.att-beneficiary-group,.report-card{border-color:var(--gfp-border)}
+.panel{box-shadow:var(--gfp-shadow)}
+.head h1,.panelhead h2{letter-spacing:-.02em}
+.head h1{line-height:1.15}
+.stat{border-radius:var(--gfp-radius);transition:transform .16s ease,box-shadow .16s ease}
+.stat .num,.workflow-stat b{font-variant-numeric:tabular-nums}
+table th{white-space:nowrap}table td{vertical-align:middle}
+tbody tr{transition:background-color .12s ease}tbody tr:hover{background:#f4f8f2}
+.btn:active,.iconbtn:active,.nav button:active{transform:translateY(1px)}
+.btn:disabled,button:disabled{cursor:not-allowed;opacity:.58}
+input,select,textarea{accent-color:var(--gfp-green)}
+.queue-item{min-width:0}.queue-item small{line-height:1.45}.queue-item b{line-height:1.35}
+@media(max-width:760px){.content{padding-bottom:max(22px,env(safe-area-inset-bottom))}.head{align-items:flex-start;gap:14px}.stat{min-width:0}.stat .num{overflow-wrap:anywhere}.tablewrap{-webkit-overflow-scrolling:touch}.panelhead{flex-wrap:wrap;gap:10px}.panelhead>*{min-width:0}.userchip .username{max-width:42vw;overflow-wrap:anywhere}.toptools{gap:6px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+</style>
 </head><body><div id="root"><div class="loginwrap"><div class="login"><div class="brand"><div class="mark">G</div><div><b>Gestion Foncière Pro</b><small>ESPACE DE GESTION</small></div></div><h1>Chargement sécurisé…</h1><p>Connexion au registre d’attestations.</p></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
 (function(){
