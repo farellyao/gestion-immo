@@ -408,6 +408,27 @@ body .btn:focus-visible,body .mobilemenu a:focus-visible,body .side a:focus-visi
 }
 @media(prefers-reduced-motion:reduce){body .tablewrap tbody tr,body .btn{transition:none}}
 
+
+/* GFP — couche visuelle H : statuts métier et progression documentaire */
+body .badge,body .att-stage-pill,body .dossier-att-status,body .welcome-chip{display:inline-flex;align-items:center;justify-content:center;gap:6px;max-width:100%;border-radius:999px;font-size:.76rem;font-weight:700;line-height:1.35}
+body .att-stage-pill,body .dossier-att-status{padding:5px 10px;white-space:normal;text-align:center}
+body .document-progress{display:grid;gap:8px}
+body .document-progress-label{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#4c6252;font-size:.82rem;font-weight:650}
+body .document-progress-track{height:8px;overflow:hidden;border-radius:999px;background:#e8efe9;box-shadow:inset 0 1px 2px rgba(18,61,43,.06)}
+body .document-progress-track>span,body .document-progress-track>div{height:100%;border-radius:inherit;transition:width .2s ease}
+body .att-mini-stages{display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+body .att-mini-stages>*{min-width:0}
+body .dossier-empty-card{border:1px dashed #cbd9ce;border-radius:15px;background:linear-gradient(145deg,#fbfdfb,#f3f7f3)}
+body .userchip{max-width:100%;overflow-wrap:anywhere}
+body .welcome-chip{padding:6px 10px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.8)}
+body .att-beneficiary-toggle,body .doc-att-toggle,body .doc-beneficiary-toggle,body .dossier-att-toggle{accent-color:#24734a}
+@media(max-width:640px){
+ body .document-progress-label{align-items:flex-start;flex-direction:column;gap:3px}
+ body .att-mini-stages{gap:6px}
+ body .att-stage-pill,body .dossier-att-status{font-size:.72rem;padding:5px 8px}
+}
+@media(prefers-reduced-motion:reduce){body .document-progress-track>span,body .document-progress-track>div{transition:none}}
+
 </style>
 </head><body><div id="root"><div class="loginwrap"><div class="login"><div class="brand"><div class="mark">G</div><div><b>Gestion Foncière Pro</b><small>ESPACE DE GESTION</small></div></div><h1>Chargement sécurisé…</h1><p>Connexion au registre d’attestations.</p></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
