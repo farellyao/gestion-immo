@@ -150,6 +150,81 @@ body input:disabled,body select:disabled,body textarea:disabled{background:#f3f5
 @media(prefers-reduced-motion:reduce){
   body .welcome-hero,body .stats .stat,body .dashboard-grid>.panel,body .dashboard-grid>div,body .content>.grid2,body .chart-bar{animation:none!important}
 }
+
+/* GFP — passe visuelle C : harmonisation des écrans métier */
+body .doc-groups,body .att-groups{gap:12px}
+body .doc-beneficiary-group,body .doc-att-group,body .att-beneficiary-group{border-color:#dce6d9;box-shadow:0 5px 18px #193e2708;transition:border-color .18s,box-shadow .18s}
+body .doc-beneficiary-group:hover,body .att-beneficiary-group:hover{border-color:#c5d7c0;box-shadow:0 9px 24px #193e270d}
+body .doc-beneficiary-toggle,body .doc-att-toggle{min-height:68px}
+body .doc-beneficiary-toggle:focus-visible,body .doc-att-toggle:focus-visible,body .att-beneficiary-toggle:focus-visible{outline:3px solid #91b77b;outline-offset:-3px}
+body .doc-beneficiary-avatar{box-shadow:inset 0 0 0 1px #ffffffa6}
+body .doc-group-count{white-space:nowrap;border:1px solid #dfead8}
+body .doc-beneficiary-content{border-top:1px solid #e8eee5}
+body .dossier-file{transition:border-color .16s,background .16s}
+body .dossier-file:hover{border-color:#c9d9c4;background:#fcfefb}
+body .dossier-file-main{line-height:1.45}
+body .dossier-banner{position:relative;isolation:isolate;overflow:hidden;border:1px solid #ffffff18;box-shadow:0 16px 36px #123d321c,inset 0 1px #ffffff12}
+body .dossier-banner-copy h2{letter-spacing:-.035em;line-height:1.2}
+body .dossier-banner-metrics div{border:1px solid #ffffff20;border-radius:12px;background:#ffffff0b;padding:11px 13px}
+body .dossier-section-heading{gap:12px}
+body .dossier-section-heading h2{letter-spacing:-.025em}
+body .dossier-attestations-section{border-color:#dce6d9;border-radius:15px;box-shadow:0 5px 18px #193e2707}
+body .dossier-att-toggle{transition:background .16s}
+body .dossier-att-toggle:hover{background:#edf4e9}
+body .dossier-document-box{box-shadow:0 2px 8px #173d2604}
+body .att-beneficiary-toggle{transition:background .16s}
+body .att-beneficiary-toggle:hover{background:linear-gradient(105deg,#e8f2e3,#fff 75%)}
+body .att-group-next{box-shadow:0 2px 8px #173d2604}
+body .att-work-card{box-shadow:0 2px 8px #173d2605;transition:transform .16s,border-color .16s,box-shadow .16s}
+body .att-work-card:hover{transform:translateY(-2px);border-color:#cbdac7;box-shadow:0 8px 18px #173d2610}
+body .att-number{letter-spacing:-.015em}
+body .workflow-stat{border-radius:13px;border:1px solid #e1e8de;box-shadow:0 2px 8px #173d2604}
+body .workflow-stat b{font-variant-numeric:tabular-nums}
+body .formgrid{gap:16px}
+body .field{min-width:0;gap:7px}
+body .field label{line-height:1.4}
+body .field input,body .field select,body .field textarea{min-height:42px;padding:10px 12px}
+body .field textarea{min-height:100px;line-height:1.5}
+body .modal{max-width:min(680px,calc(100vw - 24px));max-height:calc(100dvh - 28px);overflow:auto}
+body .modal h2{letter-spacing:-.03em;line-height:1.25}
+body .modalfoot{position:sticky;bottom:0;background:#ffffffed;backdrop-filter:blur(10px);border-top:1px solid #e8eee6;padding-top:12px}
+body .toolbar{gap:9px}
+body .toolbar .btn{white-space:nowrap}
+body .tablewrap{border-radius:0 0 14px 14px}
+body table th{white-space:nowrap}
+body table td{vertical-align:middle;line-height:1.45}
+body .primarytext{overflow-wrap:anywhere}
+body .subtext{line-height:1.45}
+@media(max-width:760px){
+  body .att-beneficiary-cards{grid-template-columns:minmax(0,1fr);gap:10px}
+  body .att-work-card{padding:13px}
+  body .dossier-banner{border-radius:16px}
+  body .dossier-banner-avatar{width:48px;height:48px;border-radius:14px;font-size:20px}
+  body .dossier-banner-metrics{display:flex;gap:8px}
+  body .dossier-banner-metrics div{flex:1;min-width:0}
+  body .doc-groups{padding:11px}
+  body .doc-beneficiary-toggle{padding:13px;gap:10px}
+  body .doc-beneficiary-avatar{width:36px;height:36px;border-radius:10px}
+  body .dossier-card-body{padding:14px}
+  body .dossier-facts{gap:10px}
+  body .formgrid{gap:13px}
+  body .modal{padding:18px}
+}
+@media(max-width:480px){
+  body .att-work-card-top{align-items:flex-start}
+  body .att-work-actions .btn{flex:1}
+  body .doc-beneficiary-title b,body .doc-att-toggle b{overflow-wrap:anywhere}
+  body .doc-group-count{padding:4px 7px;font-size:10px}
+  body .dossier-banner-metrics div{padding:9px 7px}
+  body .dossier-facts{grid-template-columns:minmax(0,1fr)}
+  body .modalfoot{flex-wrap:wrap}
+  body .modalfoot .btn{flex:1}
+  body .toolbar{flex-wrap:wrap}
+  body .toolbar .btn{flex:1}
+}
+@media(prefers-reduced-motion:reduce){
+  body .doc-beneficiary-group,body .att-beneficiary-group,body .dossier-file,body .att-work-card{transition:none!important}
+}
 </style>
 </head><body><div id="root"><div class="loginwrap"><div class="login"><div class="brand"><div class="mark">G</div><div><b>Gestion Foncière Pro</b><small>ESPACE DE GESTION</small></div></div><h1>Chargement sécurisé…</h1><p>Connexion au registre d’attestations.</p></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
