@@ -46,7 +46,15 @@ jobs:
                       if not self.external: self.parts.append(''.join(self.current))
                       self.inside=False; self.external=False
           for filename in ('app.html', 'index.html'):
-              p=Scripts(); p.feed(Path(filename).read_text(encoding='utf-8'))
+              source = Path(filename).read_text(encoding='utf-8')
+              lower = source.lower().rstrip()
+              if not lower.endswith('</html>') or '</body>' not in lower or '</head>' not in lower:
+                  raise SystemExit(f'{filename}: document HTML incomplet (balises de fermeture manquantes)')
+              p=Scripts(); p.feed(source); p.close()
+              if p.inside:
+                  raise SystemExit(f'{filename}: balise <script> non fermée')
+              if not p.parts:
+                  raise SystemExit(f'{filename}: aucun script inline à vérifier')
               Path('/tmp/'+filename+'.js').write_text('\\n'.join(p.parts), encoding='utf-8')
           PY
           node --check /tmp/app.html.js
