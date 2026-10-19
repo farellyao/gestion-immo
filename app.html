@@ -95,6 +95,7 @@ body :focus-visible{outline:3px solid #b7d5a0;outline-offset:2px}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
 (function(){
 const URL='https://npwkpohhqrrzziycgoak.supabase.co',KEY='sb_publishable_NQEL7GMk01QRGOCIE4GfVQ_2hwk_7Kn';
+if(!window.supabase||typeof window.supabase.createClient!=='function'){const root=document.getElementById('root');root.innerHTML='<div class="loginwrap"><div class="login"><div class="brand"><div class="mark">G</div><b>Gestion Foncière Pro</b></div><h1>Connexion indisponible</h1><div class="notice error">La bibliothèque de connexion n’a pas pu être chargée. Vérifiez votre connexion Internet puis réessayez.</div><button class="btn primary" id="reloadapp" type="button">Réessayer</button></div></div>';document.getElementById('reloadapp').onclick=()=>location.reload();return}
 const sb=window.supabase.createClient(URL,KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
 const statuses=['En préparation','À vérifier','Validée en interne','Valide','Annulée'];
 const statusClass=s=>s==='Valide'?'good':s==='Annulée'?'bad':s==='À vérifier'?'warn':'';
