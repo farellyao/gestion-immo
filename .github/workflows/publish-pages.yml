@@ -27,6 +27,29 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Validate application JavaScript
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class Scripts(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.inside=False; self.external=False; self.parts=[]; self.current=[]
+              def handle_starttag(self, tag, attrs):
+                  if tag == 'script':
+                      self.inside=True; self.external=any(k=='src' for k,v in attrs); self.current=[]
+              def handle_data(self, data):
+                  if self.inside and not self.external: self.current.append(data)
+              def handle_endtag(self, tag):
+                  if tag == 'script' and self.inside:
+                      if not self.external: self.parts.append(''.join(self.current))
+                      self.inside=False; self.external=False
+          for filename in ('app.html', 'index.html'):
+              p=Scripts(); p.feed(Path(filename).read_text(encoding='utf-8'))
+              Path('/tmp/'+filename+'.js').write_text('\\n'.join(p.parts), encoding='utf-8')
+          PY
+          node --check /tmp/app.html.js
+          node --check /tmp/index.html.js
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
