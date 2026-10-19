@@ -343,6 +343,39 @@ body .login .btn{min-height:45px}
 @media(max-width:420px){
   body .report-cards .report-card{min-height:88px}
 }
+
+/* GFP — couche visuelle F : formulaires, dialogues et retours d'état */
+:root{--gfp-focus:rgba(33,112,77,.24);--gfp-line:#dce5dd;--gfp-muted:#65756b}
+:where(input,select,textarea,button,a,[tabindex]):focus-visible{outline:3px solid var(--gfp-focus);outline-offset:2px}
+.field input,.field select,.field textarea,.search input,.toolbar input,.toolbar select,.login input,.modal input,.modal select,.modal textarea{min-height:42px;border:1px solid #cbd8ce;border-radius:10px;background:#fff;transition:border-color .16s ease,box-shadow .16s ease,background .16s ease}
+.field textarea,.modal textarea{min-height:104px;resize:vertical}
+.field input:hover,.field select:hover,.field textarea:hover,.search input:hover,.toolbar input:hover,.toolbar select:hover,.login input:hover,.modal input:hover,.modal select:hover,.modal textarea:hover{border-color:#91b39c}
+.field input:focus,.field select:focus,.field textarea:focus,.search input:focus,.toolbar input:focus,.toolbar select:focus,.login input:focus,.modal input:focus,.modal select:focus,.modal textarea:focus{outline:none;border-color:#27754e;box-shadow:0 0 0 4px var(--gfp-focus)}
+.field label{display:block;margin-bottom:7px;color:#344b3c;font-size:.86rem;font-weight:650;letter-spacing:.005em}
+.field input::placeholder,.field textarea::placeholder,.search input::placeholder{color:#8a988e}
+.modal{overscroll-behavior:contain}
+.modal>form,.modal form{min-width:0}
+.modalfoot{position:sticky;bottom:0;z-index:2;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px;padding:14px 18px;background:rgba(255,255,255,.96);border-top:1px solid var(--gfp-line);backdrop-filter:blur(10px)}
+.modalfoot .btn{min-height:42px}
+.btn:disabled,button:disabled{cursor:wait;opacity:.68;filter:saturate(.72)}
+.btn{transition:transform .14s ease,box-shadow .14s ease,background .14s ease,border-color .14s ease}
+.btn:not(:disabled):active{transform:translateY(1px)}
+.notice{border:1px solid transparent;border-radius:12px;padding:12px 14px;line-height:1.5}
+.notice.error,.toast.error{border-color:#f0c4c0;background:#fff3f1;color:#8b2924}
+.notice.success,.toast.success{border-color:#b9dfc6;background:#effaf2;color:#1d633a}
+.notice.warning,.toast.warning{border-color:#f0d8a6;background:#fff8e8;color:#80540d}
+.notice.info,.toast.info{border-color:#c5dced;background:#f0f7fc;color:#235a7d}
+.empty{border:1px dashed #cbd8ce;border-radius:14px;background:linear-gradient(135deg,#fbfdfb,#f5f8f5);padding:26px 18px;text-align:center}
+.login{border:1px solid rgba(213,226,216,.95);box-shadow:0 24px 70px rgba(20,52,34,.12)}
+.login input{width:100%}
+@media(max-width:640px){
+ .modal{width:calc(100vw - 20px)!important;max-width:calc(100vw - 20px)!important;max-height:calc(100dvh - 20px);overflow:auto;border-radius:16px}
+ .modalfoot{margin:0 -1px;gap:8px;padding:12px}
+ .modalfoot .btn{flex:1 1 130px}
+ .field input,.field select,.field textarea,.login input{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.btn,.field input,.field select,.field textarea{transition:none}}
+
 </style>
 </head><body><div id="root"><div class="loginwrap"><div class="login"><div class="brand"><div class="mark">G</div><div><b>Gestion Foncière Pro</b><small>ESPACE DE GESTION</small></div></div><h1>Chargement sécurisé…</h1><p>Connexion au registre d’attestations.</p></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
