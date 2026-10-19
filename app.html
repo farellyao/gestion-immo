@@ -124,6 +124,95 @@ body :focus-visible{outline:3px solid #b7d5a0;outline-offset:2px}
 @media(max-width:850px){.gfp-dashboard-main{grid-template-columns:1fr}.gfp-workflow-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gfp-shortcut-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.gfp-workflow{padding:17px 13px}.gfp-workflow-grid{gap:8px}.gfp-stage-card{padding:12px 11px;min-height:98px}.gfp-stage-card strong{font-size:25px}.gfp-stage-card>span{font-size:9px}.gfp-shortcuts{padding:17px 12px}.gfp-shortcut-grid{grid-template-columns:1fr}.gfp-shortcut{padding:13px}.gfp-section-title{align-items:flex-start;flex-direction:column}.gfp-queue-item{padding:12px}}
 </style>
+
+<style id="gfp-design-system-v2">
+/* GFP Design System v2 — vert profond & ivoire, sans changement de logique métier */
+:root{
+  --gfp-forest:#174D36;--gfp-forest-dark:#103B2A;--gfp-green:#2E7451;
+  --gfp-sage:#B6C9AE;--gfp-ivory:#F4F0E4;--gfp-ivory-light:#FAF8F1;
+  --gfp-white:#FFFFFF;--gfp-ink:#242B26;--gfp-muted:#707970;
+  --gfp-border:#E4E5DB;--gfp-success:#278253;--gfp-warning:#B7791F;--gfp-error:#C64747;
+  --gfp-radius-sm:9px;--gfp-radius-md:13px;--gfp-radius-lg:17px;
+  --gfp-shadow:0 5px 18px rgba(16,59,42,.045);
+  color:var(--gfp-ink);background:var(--gfp-ivory-light)
+}
+body,.main{background:var(--gfp-ivory-light);color:var(--gfp-ink)}
+.side{background:var(--gfp-forest-dark);box-shadow:4px 0 22px rgba(16,59,42,.07)}
+.mark{background:var(--gfp-sage);color:var(--gfp-forest-dark);box-shadow:none}
+.nav button{color:#d6e3d8;border-radius:var(--gfp-radius-sm)}
+.nav button.active,.nav button:hover{background:var(--gfp-forest);box-shadow:inset 3px 0 var(--gfp-sage)}
+.top{background:rgba(255,255,255,.96);border-color:var(--gfp-border);backdrop-filter:blur(10px)}
+.content{color:var(--gfp-ink)}
+.head h1,.gfp-section-title h2{color:var(--gfp-forest-dark)}
+.eyebrow,.gfp-section-kicker{color:var(--gfp-green)}
+.stat,.panel,.report-card,.login,.modal{background:var(--gfp-white);border-color:var(--gfp-border);border-radius:var(--gfp-radius-md);box-shadow:var(--gfp-shadow)}
+.stat:after{background:var(--gfp-sage)}
+.stat .num,.report-card b,.gfp-stage-card strong{color:var(--gfp-forest-dark)}
+.panelhead{border-color:#eeeee7}
+.panelhead h2{color:var(--gfp-ink)}
+.btn{min-height:38px;border:1px solid var(--gfp-border);border-radius:var(--gfp-radius-sm);background:#fff;color:var(--gfp-forest);font-weight:700;box-shadow:none;transition:background .16s,border-color .16s,color .16s,transform .16s}
+.btn:hover{background:var(--gfp-ivory-light);border-color:#aabca9;box-shadow:none;transform:translateY(-1px)}
+.btn.primary{background:var(--gfp-forest);border-color:var(--gfp-forest);color:#fff}
+.btn.primary:hover{background:var(--gfp-forest-dark);border-color:var(--gfp-forest-dark)}
+.btn.danger{color:var(--gfp-error);border-color:#edcfca}
+.btn.danger:hover{background:#fff5f3}
+button:focus-visible,a:focus-visible,[role="button"]:focus-visible{outline:3px solid #91b59a;outline-offset:3px}
+.search,select,input,textarea{border-color:var(--gfp-border);border-radius:var(--gfp-radius-sm);color:var(--gfp-ink);background:#fff}
+.search::placeholder,input::placeholder,textarea::placeholder{color:#8b928a}
+.search:focus,select:focus,input:focus,textarea:focus{outline:3px solid rgba(46,116,81,.16);border-color:var(--gfp-green)}
+.field label{color:#46594a}
+th{background:var(--gfp-ivory-light);color:#626d63;border-color:#ecece4}
+td{border-color:#eeeee7}
+tr:hover td{background:#fcfbf7}
+.primarytext{color:var(--gfp-forest-dark)}
+.subtext{color:var(--gfp-muted)}
+.badge{background:#f0f0e9;color:#606960;border:1px solid transparent}
+.badge.good{background:#e7f3e8;color:#216a42}
+.badge.warn{background:#fff3d9;color:#8b5e18}
+.badge.bad{background:#fce9e6;color:#a63838}
+.notice{background:#edf4e9;color:#315b3c}
+.notice.error{background:#fff0ed;color:#a63838}
+.modalback{background:rgba(16,43,30,.62);backdrop-filter:blur(3px)}
+.modal{border-radius:18px;box-shadow:0 24px 70px rgba(16,43,30,.22)}
+.loginwrap{background:var(--gfp-ivory)}
+.login{border-radius:18px;box-shadow:0 18px 50px rgba(16,59,42,.08)}
+.toast{background:var(--gfp-forest-dark);border-radius:12px}
+.iconbtn{border-color:var(--gfp-border);color:var(--gfp-forest);border-radius:var(--gfp-radius-sm)}
+.global-results,.notify-panel{border-color:var(--gfp-border);box-shadow:0 18px 45px rgba(16,59,42,.13)}
+.global-results button:hover{background:var(--gfp-ivory-light)}
+.gfp-workflow{background:linear-gradient(115deg,#fff 0%,#fff 70%,var(--gfp-ivory) 100%);border-color:var(--gfp-border);box-shadow:var(--gfp-shadow)}
+.gfp-stage-card{border-color:var(--gfp-border);box-shadow:none}
+.gfp-shortcuts{background:var(--gfp-ivory);border-color:#e8e4d7}
+.gfp-shortcut{border-color:var(--gfp-border);box-shadow:none}
+.gfp-shortcut:hover{border-color:var(--gfp-sage);box-shadow:0 8px 20px rgba(16,59,42,.08)}
+.workflow-stat{box-shadow:none;border-color:var(--gfp-border)}
+.doc-beneficiary-group,.doc-att-group,.att-beneficiary-group{border-color:var(--gfp-border)}
+.doc-beneficiary-avatar,.dossier-summary>div{background:#edf2e8;color:var(--gfp-forest)}
+/* Sur petits écrans, les outils restent accessibles et les tableaux défilent dans leur conteneur. */
+.tablewrap{width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tablewrap table{min-width:660px}
+@media(max-width:900px){.side.open{background:var(--gfp-forest-dark)}}
+@media(max-width:600px){
+  .content{padding:17px 12px 28px}
+  .panelhead{padding:15px}
+  .stat{padding:14px}
+  .stat .num{font-size:25px}
+  .modalback{padding:10px}
+  .modal{padding:18px;width:100%}
+  .modalfoot{flex-wrap:wrap}
+  .modalfoot .btn{flex:1 1 auto}
+  .gfp-workflow{padding:17px}
+  .gfp-workflow-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gfp-shortcuts{padding:16px}
+  .gfp-shortcut-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gfp-shortcut{padding:12px 10px;align-items:flex-start}
+  .dossier-summary{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+
 </head><body><div id="root"><div class="loginwrap"><div class="login"><div class="brand"><div class="mark">G</div><div><b>Gestion Foncière Pro</b><small>ESPACE DE GESTION</small></div></div><h1>Chargement sécurisé…</h1><p>Connexion au registre d’attestations.</p></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
 (function(){
