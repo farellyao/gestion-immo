@@ -297,6 +297,52 @@ body .modalfoot .btn{min-height:40px}
 @media(prefers-reduced-motion:reduce){
   body .directory-metric,body .report-card{transition:none!important}
 }
+
+/* GFP — passe visuelle E : cartographie, rapports et journal */
+body iframe[title="Carte des lots fonciers"]{display:block;width:100%;height:clamp(250px,38vw,440px);border:0;background:#eef3eb}
+body .panel:has(iframe[title="Carte des lots fonciers"]){overflow:hidden;border-radius:16px}
+body .panel:has(iframe[title="Carte des lots fonciers"]) .panelhead{padding:17px 21px}
+body .panel:has(iframe[title="Carte des lots fonciers"]) iframe{border-top:1px solid #e8eee6}
+body .report-cards .report-card{display:flex;flex-direction:column;justify-content:center;min-height:108px}
+body .report-card small{line-height:1.5}
+body .report-card b{line-height:1.2}
+body .report-card small+b{margin-top:9px}
+body #view> .notice{margin-top:16px}
+body #view> .panel+.notice{margin-top:0}
+body #view .panel table td:first-child{color:#344f3d}
+body #view .panel table td b{color:#1c4a32;font-size:14px}
+body #view code{display:inline-block;max-width:100%;overflow-wrap:anywhere;white-space:normal;padding:3px 6px;border-radius:6px;background:#f3f6f1;color:#536858;font-size:11px}
+body #view a:not(.btn){color:#246443;text-decoration-thickness:1px;text-underline-offset:3px}
+body #view a:not(.btn):hover{color:#123d2b;text-decoration-thickness:2px}
+body .login{width:min(100%,480px)}
+body .login h1{letter-spacing:-.04em;line-height:1.2}
+body .login p{line-height:1.6}
+body .login form{gap:15px}
+body .login .field label{display:grid;gap:8px}
+body .login input{min-height:46px}
+body .login .btn{min-height:45px}
+@media print{
+  body{background:#fff!important}
+  body .side,body .top,body .mobilemenu,body .head>.btn,body .head>.rowactions,body .toolbar,body .rowactions,body .toast{display:none!important}
+  body .shell{display:block!important}
+  body .content{max-width:none!important;padding:0!important;margin:0!important}
+  body .panel,body .report-card,body .directory-metric{box-shadow:none!important;break-inside:avoid;border-color:#d6dcd4!important}
+  body .welcome-hero{animation:none!important;box-shadow:none!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  body .tablewrap{overflow:visible!important}
+  body table{min-width:0!important;width:100%!important;font-size:9pt!important}
+  body th,body td{padding:6px!important}
+  body iframe[title="Carte des lots fonciers"]{height:260px!important}
+  body .panelhead{padding:12px 14px!important}
+}
+@media(max-width:700px){
+  body iframe[title="Carte des lots fonciers"]{height:270px}
+  body .panel:has(iframe[title="Carte des lots fonciers"]) .panelhead{padding:14px}
+  body .report-cards .report-card{min-height:95px}
+  body #view code{font-size:10px}
+}
+@media(max-width:420px){
+  body .report-cards .report-card{min-height:88px}
+}
 </style>
 </head><body><div id="root"><div class="loginwrap"><div class="login"><div class="brand"><div class="mark">G</div><div><b>Gestion Foncière Pro</b><small>ESPACE DE GESTION</small></div></div><h1>Chargement sécurisé…</h1><p>Connexion au registre d’attestations.</p></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
