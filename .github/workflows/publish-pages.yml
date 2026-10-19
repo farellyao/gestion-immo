@@ -55,7 +55,7 @@ jobs:
               script_close = len(re.findall(r'</script\s*>', source, flags=re.I))
               if script_open != script_close:
                   raise SystemExit(f'{filename}: nombre de balises script incohérent ({script_open} ouvrantes, {script_close} fermantes)')
-              if not re.match(r'(?is)^\\s*<!doctype html\\s*>\\s*<html\\b', source):
+              if not lower.startswith('<!doctype html') or '<html' not in lower[:200]:
                   raise SystemExit(f'{filename}: déclaration HTML5 ou racine html absente')
               p=Scripts(); p.feed(source); p.close()
               if p.inside:
