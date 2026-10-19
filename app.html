@@ -39,7 +39,7 @@ function toast(msg,err=false){let t=document.createElement('div');t.className='t
 function canWrite(){return ['admin','agent_foncier'].includes(profile?.role)}
 function isAdmin(){return profile?.role==='admin'}
 function isDirector(){return profile?.role==='directeur'}
-function canValidate(){return isAdmin()||isDirector()}
+function canValidate(){return isDirector()}
 function roleLabel(role){return ({admin:'Administrateur',agent_foncier:'Agent vérificateur',directeur:'Directeur validateur',consultation:'Consultation'})[role]||role}
 function dossierStage(a){return ({'En préparation':'À compléter par l’agent','À vérifier':'Vérification par l’agent','Validée en interne':'En attente de validation du directeur','Valide':'Dossier validé','Annulée':'Dossier annulé'})[a?.status]||'Étape à déterminer'}
 function nextActionLabel(a){if(!a||['Valide','Annulée'].includes(a.status))return 'Consulter le dossier';if(a.status==='En préparation')return 'Continuer la saisie';if(a.status==='À vérifier')return 'Vérifier le dossier';if(a.status==='Validée en interne')return canValidate()?'Valider le dossier':'Voir l’attente du directeur';return 'Continuer le dossier'}
